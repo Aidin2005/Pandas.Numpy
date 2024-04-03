@@ -62,7 +62,18 @@ correlation = np.corrcoef(data, data2)[0, 1]
 print("Correlation coefficient:", correlation)
 
 # Correlation Matrix
-data_matrix = np.vstack((data, data2)).T
-correlation_matrix = np.corrcoef(data_matrix, rowvar=False)
-print("Correlation Matrix:")
+import pandas as pd
+
+
+data = {
+    'Age': [30, 35, 40, 45, 50],
+    'Salary': [50000, 60000, 70000, 80000, 90000],
+    'Experience': [5, 7, 10, 12, 15]
+}
+
+df = pd.DataFrame(data)
+
+correlation_matrix = df.corr()
+
+print("correlation matrix:")
 print(correlation_matrix)
